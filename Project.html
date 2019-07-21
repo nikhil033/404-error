@@ -1,32 +1,41 @@
-
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-    
-  <head>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
       
-    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
       
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-      
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-      
-      <style>
-          html{
-              background-image: url(http://unsplash.it/1500/1000?image=881&blur=5);
-          }
-      	a{
-		float: right;
-		 text-align: center;
-		padding: 14px 16px;
-	}
-	
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    var website = document.getElementById("website").value;
+                 $.getJSON("http://api.ipstack.com/"+website+"?access_key=17817b113a36f0e22cc570b29a82930d&format=1",function(data){
+                     $("#ip").text(function(){
+                         return "IP address of "+website+" is "+data.ip;
+                     });
+                     $("#iptype").text(function(){
+                         return "IP Type is "+data.type;
+                     });   
+                     $("#country").text(function(){
+                         return "Country is "+data.country_name;
+                     });
+                 }); 
+              });
+            });
+              
+            
+      </script>
+        
+    <style>
+        
+        
           .jumbotron {
               
               background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #8da389 95%),
@@ -53,7 +62,7 @@
               height:300px;
           }
           
-          #url {
+          #website {
               
               width: 300px;
               
@@ -70,98 +79,114 @@
           
           
           #footer {
-              
-              background-color: aqua;
-              padding-top: 40px;
+              background-color: #0066ff;
+              padding-top: 100px;
               margin-top: 50px;
               text-align: center;
-              padding-bottom: 10px;
+              padding-bottom: 150px;
           }
-          
+           
+          #ft {
+              color: azure;
+              background-color: black;
+              padding-top: 10px;
+              margin-top: 0px;
+              text-align: center;
+              padding-bottom: 7px;
+          }
+        
           body {
               
               position: relative;
               
           }
-      
-      </style>
-      
-  </head>
+        
+    </style>
+        
+    </head>
     
-  <body data-spy="scroll" data-target="#navbar" data-offset="150">
+    
+    <body data-spy="scroll" data-target="#navbar" data-offset="150">
       
         <nav class="navbar navbar-light bg-faded navbar-fixed-top" id="navbar">
            <a class="navbar-brand" href="#">
-              <img src="logo.jpg" width="110" height="35" alt="404!error">
+              <img src="logo.jpg" width="110" height="35" alt="">
            </a>
-          	 <a class="nav-link " href="#footer">Team</a>
-	 <a class="nav-link " href="#about">About</a>
-              <a class="nav-link " href="#jumbotron">Home <span class="sr-only">(current)</span></a>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#jumbotron">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Team</a>
+            </li>
+          </ul>
         </nav>
-
+        
+         
+        
         <div class="jumbotron" id="jumbotron">
-          <h1 class="display-3" style="color:  rgb(0,255,0)">404!Error's Website Reputation Report</h1><br><br>
-          <p class="lead" style="color: rgb(255,0,255)">Here you can get the reputation report for any of the website!!!
-You can know about :<br>
-Speed of Website<br>
-Whether  website is working or not<br>
-IP address of Website<br>
-SEO of Website<br>
-</p>
-
-        </div>
-      
-      <div class="container">
-      
+          <h1 class="display-3" style="color:aliceblue">404!Error's Website Reputation Report</h1>
+            <h1><b>What we do??</b></h1><br><h2><p class="lead">Here you can get the reputation report for any of the website!!!</p></h2>
+            <h3>We provide you:</h3><p><br> IP address<br>IP Type<br>Country of a Website!!</p>
+         </div>
+        
+         
+        <div class="container">
         <div class="row" id="about">
-          
             <h1>Why This Website?</h1>
             <p class="lead">Make a move by yourself and then trust!</p>
-              <form class="form-inline">
-          <div class="form-group">
-            <label class="sr-only" for="url">Website</label>
-            <div class="input-group">
-                <input type="url" class="form-control" id="url" placeholder="Enter Website!">
-              </div>
+            <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="url">Website</label>
+                <div class="input-group">
+                <input type="url" class="form-control" id="website" placeholder="Enter Website!">
+                </div>
             </div>
-          <button type="submit" class="btn btn-info">Submit</button>
-        </form>
-          </div>
+            <button type="button" class="btn btn-info">Submit</button>
+                
+            <br><br><p id = "ip"></p>
+                    <p id = "iptype"></p>
+                    <p id = "country"></p>
+            </form>
+        </div>
+        </div>
           
-          </div>
-          
-      
-      <div id="footer">
-      
-        <div class="row">
-          
-                <h2><b>Our Team</b></h2><br>
-            
-            <p class="lead"> </p>
-                <div class="row">
-                   <div class="col-sm-3">
-                       Nikhil Aggarwal
-                   </div>
-                   <div class="col-sm-3">
-                       Shivam Sharma
-                   </div>               
-                   <div class="col-sm-3">
-                      Rakshit Mehra
-                   </div>
-                   <div class="col-sm-3">
-                        Shubham
-                   </div>
-            </div><br><br>
-            <h5>Reach us at: nikhil.aggarwal033@gmail.com</h5>
-          <p>&copy<b>404!error</b></p>
-          </div>
-      
-      </div>
-      
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-      
-  </body>
+        
+          
+        <div id="footer">
+            <div class="row">
+                <h1><b>Our Team</b></h1><br><br>
+                  <p class="lead"> </p>
+                  <div class="row">
+                     <div class="col-sm-3">
+                       Nikhil Aggarwal
+                     </div>
+                     <div class="col-sm-3">
+                       Shivam Sharma
+                     </div>               
+                     <div class="col-sm-3">
+                      Shubham Sharma
+                     </div>
+                     <div class="col-sm-3">
+                        Rakshit Mehra
+                     </div>
+                  </div>
+            </div>
+        </div>
+        
+           
+        <div id="ft">
+           <h5>Reach us at: nikhil.aggarwal033@gmail.com</h5>
+          <p>&copy &nbsp; 2019<b>&nbsp; 404!error</b></p>
+        </div>
+        
+     </body>
+    
+    
     
 </html>
